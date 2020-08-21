@@ -59,6 +59,16 @@ public class Clientes implements Serializable {
     @Column(name = "provincia")
     private String provincia;
 
+    public Clientes(Integer cedula, String nombre, String apellido, String direccion, Integer edad, String vehiculo, String provincia) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.direccion = direccion;
+        this.edad = edad;
+        this.vehiculo = vehiculo;
+        this.provincia = provincia;
+    }
+
     public Clientes() {
     }
 
