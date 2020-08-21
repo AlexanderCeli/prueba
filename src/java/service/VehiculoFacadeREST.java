@@ -131,5 +131,13 @@ public class VehiculoFacadeREST extends AbstractFacade<Vehiculo> {
         consulta.setParameter("nPasajeros", nPasajeros);
         return consulta.getResultList();
     }
+    @POST
+    @Path("vehiculosconcesionario")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public List<Vehiculo> concesionario (@FormParam("concesionario") String concesionario){
+        TypedQuery consulta = getEntityManager().createQuery("SELECT v FROM Vehiculo v WHERE v.concesionario = :concesionario" , Vehiculo.class);
+        consulta.setParameter("concesionario", concesionario);
+        return consulta.getResultList();   
+    }
     
 }

@@ -1,7 +1,7 @@
 
 #top {
     position: relative;
-    background-color: #036fab;
+    background-color: #000000 ;
     color: white;
     padding: 5px;
     margin: 0px 0px 10px 0px;
@@ -9,7 +9,7 @@
 
 #bottom {
     position: relative;
-    background-color: #c2dfef;
+    background-color: #0E498F;
     padding: 5px;
     margin: 10px 0px 0px 0px;
 }
@@ -29,8 +29,8 @@
 }
 
 .center_content {
-    position: relative;
-    background-color: #dddddd;
+    position: center;
+    background-color: #ffffff;
     padding: 5px;
 }
 
@@ -47,7 +47,7 @@
 }
 
 #top a:link, #top a:visited {
-  color: white;
+  color:  #CA1B1B ;
   font-weight : bold;
   text-decoration: none;
 }
