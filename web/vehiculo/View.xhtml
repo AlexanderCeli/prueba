@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VehiculoViewDlg" widgetVar="VehiculoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewVehiculoTitle}">
+            <h:form id="VehiculoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vehiculoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_id}"/>
+                        <h:outputText value="#{vehiculoController.selected.id}" title="#{bundle.ViewVehiculoTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_placa}"/>
+                        <h:outputText value="#{vehiculoController.selected.placa}" title="#{bundle.ViewVehiculoTitle_placa}"/>
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_año}"/>
+                        <h:outputText value="#{vehiculoController.selected.año}" title="#{bundle.ViewVehiculoTitle_año}"/>
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_NPasajeros}"/>
+                        <h:outputText value="#{vehiculoController.selected.NPasajeros}" title="#{bundle.ViewVehiculoTitle_NPasajeros}"/>
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_concesonario}"/>
+                        <h:outputText value="#{vehiculoController.selected.concesonario}" title="#{bundle.ViewVehiculoTitle_concesonario}"/>
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_marca}"/>
+                        <h:outputText value="#{vehiculoController.selected.marca}" title="#{bundle.ViewVehiculoTitle_marca}"/>
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_modelo}"/>
+                        <h:outputText value="#{vehiculoController.selected.modelo}" title="#{bundle.ViewVehiculoTitle_modelo}"/>
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_paisFabrica}"/>
+                        <h:outputText value="#{vehiculoController.selected.paisFabrica}" title="#{bundle.ViewVehiculoTitle_paisFabrica}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="VehiculoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
