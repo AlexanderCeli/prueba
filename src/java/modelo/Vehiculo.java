@@ -64,6 +64,17 @@ public class Vehiculo implements Serializable {
     @Column(name = "paisFabrica")
     private String paisFabrica;
 
+    public Vehiculo(Integer id, String placa, String año, String nPasajeros, String concesonario, String marca, String modelo, String paisFabrica) {
+        this.id = id;
+        this.placa = placa;
+        this.año = año;
+        this.nPasajeros = nPasajeros;
+        this.concesonario = concesonario;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.paisFabrica = paisFabrica;
+    }
+
     public Vehiculo() {
     }
 

@@ -106,7 +106,7 @@ public class ClientesFacadeREST extends AbstractFacade<Clientes> {
             @FormParam("apellido") String apellido, @FormParam("direccion") String direccion,@FormParam("edad") Integer edad,
             @FormParam("vehiculo") String vehiculo,@FormParam("provincia") String provincia) {
         Clientes e = super.find(cedula);
-        if(cedula == null){
+        if(e == null){
             return "el objeto no se encuentra";
         }else{
         e.setNombre(nombre);

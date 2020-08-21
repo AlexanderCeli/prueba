@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -18,6 +19,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import modelo.Clientes;
 import modelo.Mantenimiento;
 
 /**
@@ -86,6 +88,37 @@ public class MantenimientoFacadeREST extends AbstractFacade<Mantenimiento> {
     @Override
     protected EntityManager getEntityManager() {
         return em;
+    }
+    
+        @POST
+    @Path("create")
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON})
+    public String crear(@FormParam("idmantenimiento") Integer idmantenimiento, @FormParam("vehiculo") String vehiculo,
+            @FormParam("fecha") String fecha, @FormParam("descripcion") String descripcion,@FormParam("kilometraje") String kilometraje,
+            @FormParam("cliente") String cliente){
+        Mantenimiento e = new Mantenimiento(idmantenimiento,vehiculo,fecha,descripcion,kilometraje,cliente);
+        super.create(e);
+        return "el objeto se creo con exito";
+    }
+
+    @POST
+    @Path("editar")
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON})
+    public String editar(@FormParam("idmantenimiento") Integer idmantenimiento, @FormParam("vehiculo") String vehiculo,
+            @FormParam("fecha") String fecha, @FormParam("descripcion") String descripcion,@FormParam("kilometraje") String kilometraje,
+            @FormParam("cliente") String cliente) {
+        Mantenimiento e = super.find(idmantenimiento);
+        if(e == null){
+            return "el objeto no se encuentra";
+        }else{
+        e.setCliente(cliente);
+        e.setDescripcion(descripcion);
+        e.setFecha(fecha);
+        e.setKilometraje(kilometraje);
+        e.setVehiculo(vehiculo);
+               
+        return "el objeto se edito con exito";
+        }
     }
     
 }

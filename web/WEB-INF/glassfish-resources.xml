@@ -7,6 +7,7 @@
         <property name="databaseName" value="carros"/>
         <property name="User" value="root"/>
         <property name="Password" value="root"/>
+        <property name="useSSL" value="false"/>
         <property name="URL" value="jdbc:mysql://localhost:3306/carros?zeroDateTimeBehavior=convertToNull"/>
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
     </jdbc-connection-pool>
