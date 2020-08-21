@@ -9,6 +9,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
@@ -122,6 +123,13 @@ public class VehiculoFacadeREST extends AbstractFacade<Vehiculo> {
         return "el objeto se edito con exito";
         }
     }
-    
+     @POST
+    @Path("edades")
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON})
+    public List<Vehiculo> pasajeros(@FormParam("nPasajeros") Integer nPasajeros ){
+        TypedQuery consulta = (TypedQuery) getEntityManager().createQuery("SELECT v FROM Vehiculo v WHERE v.nPasajeros = :nPasajeros");
+        consulta.setParameter("nPasajeros", nPasajeros);
+        return consulta.getResultList();
+    }
     
 }
